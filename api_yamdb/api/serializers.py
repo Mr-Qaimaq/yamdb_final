@@ -1,13 +1,13 @@
 import datetime as dt
+
 from django.core.exceptions import ObjectDoesNotExist
 from django.db.utils import IntegrityError
 from rest_framework import serializers
 from rest_framework.exceptions import NotFound
 from rest_framework.relations import SlugRelatedField
 from rest_framework.validators import UniqueValidator
-
-from reviews.models import (Review, Comment, User, EmailAndCode,
-                            Category, Genre, Title)
+from reviews.models import (Category, Comment, EmailAndCode, Genre, Review,
+                            Title, User)
 
 
 class UserSerializer(serializers.ModelSerializer):

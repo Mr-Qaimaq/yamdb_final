@@ -1,30 +1,30 @@
 import datetime as dt
 
 from django.contrib.auth.tokens import PasswordResetTokenGenerator
+from django.core.mail import send_mail
 from django.db.models import Avg
 from django.utils import timezone
-from django.core.mail import send_mail
-from rest_framework import status, viewsets, filters, mixins
-from rest_framework.permissions import (AllowAny,
-                                        IsAuthenticatedOrReadOnly,
-                                        IsAuthenticated)
-from rest_framework.response import Response
+from rest_framework import filters, mixins, status, viewsets
+from rest_framework.decorators import action, api_view, permission_classes
 from rest_framework.generics import get_object_or_404
-from rest_framework.decorators import permission_classes, api_view, action
 from rest_framework.pagination import LimitOffsetPagination
+from rest_framework.permissions import (AllowAny, IsAuthenticated,
+                                        IsAuthenticatedOrReadOnly)
+from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import AccessToken
-from reviews.models import (User, Review, Genre, UserRole,
-                            Title, Category, EmailAndCode)
+from reviews.models import (Category, EmailAndCode, Genre, Review, Title, User,
+                            UserRole)
 
-from .permissions import (ReviewAndComment, AdminModifyOrReadOnlyPermission,
-                          IsAdmin)
-from .serializers import (UserSerializer,
-                          ReviewSerializer, CommentSerializer,
-                          CategorySerializer, GenreSerializer,
-                          ReadTitleSerializer, WriteTitleSerializer,
-                          GetTokenSerializer, ConfirmEmailSerializer)
-from .filters import TitleFilter
 from api_yamdb.settings import DEFAULT_FROM_EMAIL
+
+from .filters import TitleFilter
+from .permissions import (AdminModifyOrReadOnlyPermission, IsAdmin,
+                          ReviewAndComment)
+from .serializers import (CategorySerializer, CommentSerializer,
+                          ConfirmEmailSerializer, GenreSerializer,
+                          GetTokenSerializer, ReadTitleSerializer,
+                          ReviewSerializer, UserSerializer,
+                          WriteTitleSerializer)
 
 
 class UserViewSet(viewsets.ModelViewSet):

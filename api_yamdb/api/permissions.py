@@ -11,6 +11,7 @@ class AdminModifyOrReadOnlyPermission(permissions.BasePermission):
             return False
         if request.user.is_staff or request.user.is_admin:
             return True
+        return False
 
 
 class UserPermission(permissions.BasePermission):
