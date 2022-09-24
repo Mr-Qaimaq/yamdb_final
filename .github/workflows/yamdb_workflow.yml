@@ -44,4 +44,5 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: qaimaq/api_yamdb:latest
+          context: ./api_yamdb
+          tags: ${{ secrets.DOCKER_USERNAME }}/api_yamdb:latest
