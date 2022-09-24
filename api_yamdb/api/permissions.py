@@ -38,6 +38,7 @@ class IsAdmin(permissions.BasePermission):
             return True
         if request.user.is_authenticated:
             return bool(request.user.is_staff or request.user.is_admin)
+        return False
 
 
 class ReviewAndComment(permissions.BasePermission):
