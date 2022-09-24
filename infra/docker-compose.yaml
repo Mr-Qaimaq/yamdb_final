@@ -9,7 +9,7 @@ services:
      - ./.env
 
   web:
-    build: qaimaq/api_yamdb:latest
+    image: qaimaq/api_yamdb:latest
     restart: always
     volumes:
      - static_value:/app/static/
