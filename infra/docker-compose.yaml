@@ -9,7 +9,7 @@ services:
      - ./.env
 
   web:
-    image: qaimaq/api_yamdb:latest
+    image: "${{ secrets.DOCKER_USERNAME }}/api_yamdb:latest"
     restart: always
     volumes:
      - static_value:/app/static/
