@@ -61,7 +61,7 @@ python manage.py createsuperuser
 Python, Django, Django REST Framework, PostgreSQL, Nginx, Docker, Docker Compose, Docker Hub, GutHub Actions
 
 ## Author
-**Samgar Kali** - author, Yandex Practicum student in Python Developer Course.
+**Samgar Kali** - Yandex Practicum student in Python Developer Course.
 
 ## Badge
 ![example workflow](https://github.com/Mr-Qaimaq/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg)
